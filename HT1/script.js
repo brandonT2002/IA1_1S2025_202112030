@@ -1,6 +1,5 @@
-// Cargar el intérprete de Tau-Prolog
 document.addEventListener("DOMContentLoaded", function () {
-    session = pl.create(1000); // Crear una sesión con 1000 cláusulas
+    session = pl.create(1000);
 
     const prologCode = `
         padre(mariano, hugo).
@@ -27,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
         abuela(X, Y) :- madre(X, P), (padre(P, Y); madre(P, Y)).
     `;
 
-    // Consultar el código Prolog en Tau-Prolog
     session.consult(prologCode, function (success) {
         if (!success) {
             document.getElementById("output").innerText = "Error al cargar la base de conocimiento.";
@@ -35,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Función para ejecutar consultas
 function consultar() {
     let query = document.getElementById("query").value.trim();
     let outputElement = document.getElementById("output");
@@ -59,9 +56,8 @@ function consultar() {
             if (answer) {
                 results.push(pl.format_answer(answer));
             }
-        }, 10); // Límite de respuestas (ajustable)
+        }, 10);
 
-        // Esperar un breve tiempo para capturar respuestas antes de actualizar la salida
         setTimeout(() => {
             outputElement.innerText = results.length > 0 ? "Resultados:\n" + results.join("\n") : "No hay respuestas.";
         }, 100);
