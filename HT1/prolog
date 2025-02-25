@@ -1,0 +1,18 @@
+% Hechos: Relaciones padre, madre y género
+padre(hugo, brandon).
+padre(hugo, bryan).
+padre(hugo, kenneth).
+madre(estela, brandon).
+madre(estela, bryan).
+madre(estela, kenneth).
+
+hombre(brandon).
+hombre(hugo).
+hombre(bryan).
+hombre(kenneth).
+mujer(estela).
+
+% Reglas
+hermano(X, Y) :- padre(P, X), padre(P, Y), madre(M, X), madre(M, Y), X \= Y.
+hijo(X, P) :- padre(P, X); madre(P, X).
+abuelo(X, Y) :- padre(X, P), padre(P, Y); padre(X, P), madre(P, Y).
