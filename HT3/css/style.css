@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.filters {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.card {
+    background: rgba(34, 34, 34, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    font-family: 'Merriweather', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    transition: all 0.3s ease;
+    background-size: cover;
+}
+
+.lugar {
+    font-size: 1rem;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+}
+
+.card:active {
+    background-color: rgba(34, 34, 34, 1);
+}
